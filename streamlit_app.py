@@ -5,20 +5,19 @@ from streamlit_option_menu import option_menu
 st.set_page_config(page_title="EricBogerSystems", page_icon="🖥️", layout="wide")
 
 # Use local CSS file style.css
-def load_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-
-load_css("style/style.css")
+with open("style/style.css")as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html = True)
 
 # Sidebar Menu
+st.sidebar.image("data/ebs_logo.png",caption="Developed and Maintaned by Eric Boger")
 with st.sidebar:
     menu_selected = option_menu(
         menu_title="MENU", 
         menu_icon="cast",
         options=[ "Home", "Projects", "Contact" ],
         icons=[ "house" , "book" , "envelope" ],
-        default_index=0
+        default_index=0,
+        orientation="vertical",  # horizontal
     )
 
 #
